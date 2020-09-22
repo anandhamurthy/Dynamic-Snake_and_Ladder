@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".SelectPlayersActivity">
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_marginTop="-5dp"
+        android:layout_alignParentLeft="true"
+        android:layout_height="300dp"
+        android:id="@+id/ladder"/>
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_height="300dp"
+        android:id="@+id/snake"/>
+
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/select_players_text"
+            android:background="@drawable/rounded">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:id="@+id/select_players"
+                android:textColor="@color/colorBlack"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:text="Select Player"
+                android:textSize="18dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:layout_below="@+id/select_players_text"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true">
+
+
+            <TextView
+                android:id="@+id/one"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/icon_rounded"
+                android:padding="10dp"
+                android:text="1"
+                android:textColor="@color/colorBlack"
+                android:gravity="center"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/two"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_toRightOf="@+id/one"
+                android:background="@drawable/icon_rounded"
+                android:padding="10dp"
+                android:text="2"
+                android:textColor="@color/colorBlack"
+                android:gravity="center"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:id="@+id/three"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_toRightOf="@+id/two"
+                android:background="@drawable/icon_rounded"
+                android:padding="10dp"
+                android:text="3"
+                android:textColor="@color/colorBlack"
+                android:gravity="center"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"/>
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

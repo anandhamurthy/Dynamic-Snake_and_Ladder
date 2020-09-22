@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text="Player Name"
+        android:textColor="@color/colorBlack"
+        android:textSize="18dp"
+        android:fontFamily="@font/nunito_sans" />
+
+    <EditText
+        android:id="@+id/player_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/nunito_sans"
+        android:hint="Enter Player Name"
+        android:inputType="textCapWords"
+        android:textColor="@color/colorBlack"
+        android:textSize="15dp" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:fontFamily="@font/nunito_sans"
+        android:padding="10dp"
+        android:background="@color/colorBlack"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="true"
+        android:textSize="15dp"
+        android:drawablePadding="10dp"
+        android:textColor="#FFFFFF"/>
+</LinearLayout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <nl.dionsegijn.konfetti.KonfettiView
+        android:id="@+id/konfettiView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:id="@+id/win_layout"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:id="@+id/win_image"
+            android:layout_centerHorizontal="true"
+            android:layout_height="100dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/win"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center" />
+
+
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            app:cardCornerRadius="5dp"
+            android:layout_centerHorizontal="true"
+            app:cardBackgroundColor="@color/colorWhite"
+            android:layout_below="@+id/win_image"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:padding="10dp"
+                android:id="@+id/player_name"
+                android:layout_gravity="center"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:textColor="@color/colorBlack"
+                android:gravity="center"/>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/win_layout"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/back"
+            android:background="@drawable/icon_rounded"
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"/>
+
+        <ImageView
+            android:id="@+id/share"
+            android:layout_width="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="50dp"
+            android:src="@drawable/share"
+            android:layout_toRightOf="@+id/back"
+            android:background="@drawable/icon_rounded"
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

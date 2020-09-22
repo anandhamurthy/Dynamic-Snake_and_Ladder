@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:id="@+id/selected"
+    android:oneshot="false"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/snake_one" android:duration="300" />
+    <item android:drawable="@drawable/snake_two" android:duration="300" />
+    <item android:drawable="@drawable/snake_three" android:duration="300" />
+    <item android:drawable="@drawable/snake_three" android:duration="300" />
+    <item android:drawable="@drawable/snake_two" android:duration="300" />
+    <item android:drawable="@drawable/snake_one" android:duration="300" />
+</animation-list>

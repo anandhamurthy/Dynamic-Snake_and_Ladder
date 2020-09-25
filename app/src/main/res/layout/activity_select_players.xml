@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/bg_por"
     tools:context=".SelectPlayersActivity">
 
     <ImageView
@@ -31,11 +31,13 @@
 
         <RelativeLayout
             android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:paddingLeft="@dimen/_20sdp"
+            android:paddingRight="@dimen/_20sdp"
+            android:layout_height="@dimen/_40sdp"
             android:gravity="center"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginLeft="@dimen/_40sdp"
+            android:layout_marginRight="@dimen/_40sdp"
             android:layout_centerHorizontal="true"
             android:id="@+id/select_players_text"
             android:background="@drawable/rounded">
@@ -43,67 +45,67 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="@dimen/_40sdp"
                 android:gravity="center"
-                android:padding="10dp"
+                android:padding="@dimen/_10sdp"
                 android:id="@+id/select_players"
                 android:textColor="@color/colorBlack"
                 android:fontFamily="@font/nunito_sans_bold"
                 android:text="Select Player"
-                android:textSize="18dp" />
+                android:textSize="@dimen/_15sdp" />
 
         </RelativeLayout>
 
         <RelativeLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/_40sdp"
             android:gravity="center"
             android:layout_below="@+id/select_players_text"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="@dimen/_30sdp"
             android:layout_centerHorizontal="true">
 
 
             <TextView
                 android:id="@+id/one"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/icon_rounded"
-                android:padding="10dp"
+                android:padding="@dimen/_10sdp"
                 android:text="1"
                 android:textColor="@color/colorBlack"
                 android:gravity="center"
                 android:fontFamily="@font/nunito_sans_bold"
-                android:layout_marginRight="5dp"
-                android:layout_marginLeft="5dp"/>
+                android:layout_marginRight="@dimen/_3sdp"
+                android:layout_marginLeft="@dimen/_3sdp"/>
 
             <TextView
                 android:id="@+id/two"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_toRightOf="@+id/one"
                 android:background="@drawable/icon_rounded"
-                android:padding="10dp"
+                android:padding="@dimen/_10sdp"
                 android:text="2"
                 android:textColor="@color/colorBlack"
                 android:gravity="center"
                 android:fontFamily="@font/nunito_sans_bold"
-                android:layout_marginRight="5dp"
-                android:layout_marginLeft="5dp"/>
+                android:layout_marginRight="@dimen/_3sdp"
+                android:layout_marginLeft="@dimen/_3sdp"/>
 
             <TextView
                 android:id="@+id/three"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_toRightOf="@+id/two"
                 android:background="@drawable/icon_rounded"
-                android:padding="10dp"
+                android:padding="@dimen/_10sdp"
                 android:text="3"
                 android:textColor="@color/colorBlack"
                 android:gravity="center"
                 android:fontFamily="@font/nunito_sans_bold"
-                android:layout_marginRight="5dp"
-                android:layout_marginLeft="5dp"/>
+                android:layout_marginRight="@dimen/_3sdp"
+                android:layout_marginLeft="@dimen/_3sdp"/>
 
 
         </RelativeLayout>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg_land"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toStartOf="@+id/player_board"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <RelativeLayout
+            android:id="@+id/mlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <HorizontalScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:padding="@dimen/_2sdp"
+                android:scrollbars="none">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/_2sdp" >
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/board_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="@dimen/_2sdp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardCornerRadius="@dimen/_2sdp">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/board"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:reverseLayout="true" />
+
+                    </androidx.cardview.widget.CardView>
+
+                </ScrollView>
+
+            </HorizontalScrollView>
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/player_board"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/_5sdp"
+        app:cardBackgroundColor="#99FFFFFF"
+        app:cardCornerRadius="@dimen/_2sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="#99FFFFFF"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/player_details">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/player_1_image"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/profile"
+                        android:layout_height="@dimen/_20sdp"
+                        android:src="@drawable/profile" />
+
+                    <TextView
+                        android:id="@+id/player_1_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Player 1"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/player_1_image"
+                        android:fontFamily="@font/nunito_sans"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <TextView
+                        android:background="@drawable/rounded"
+                        android:id="@+id/player_1_place"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:padding="@dimen/_2sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/player_1_name"
+                        android:fontFamily="@font/nunito_sans"
+                        android:textColor="@color/colorPrimaryDark" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/dice"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:src="@drawable/dice_1"/>
+
+                <TextView
+                    android:background="@drawable/rounded"
+                    android:id="@+id/roll"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="wrap_content"
+                    android:text="Roll!"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/_2sdp"
+                    android:layout_centerHorizontal="true"
+                    android:padding="@dimen/_2sdp"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_below="@+id/dice"
+                    android:fontFamily="@font/nunito_sans_bold"
+                    android:textColor="@color/colorWhite" />
+
+            </RelativeLayout>
+
+
+
+
+
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

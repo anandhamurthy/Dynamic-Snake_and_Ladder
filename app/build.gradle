@@ -45,4 +45,6 @@ dependencies {
 
     implementation "com.airbnb.android:lottie:3.4.2"
 
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
 }

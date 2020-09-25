@@ -1,6 +1,7 @@
 package com.snakeandladder;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +13,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import static android.content.Context.MODE_PRIVATE;
+
 
 public class TriPlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     Context contextActivity;
     int array[][];
     Drawable drawable;
+    int player1color, player2color, player3color;
+
     public TriPlayerAdapter(Context c, int a[][], Drawable d) {
         contextActivity=c;
         array=a;
@@ -100,23 +105,97 @@ public class TriPlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         ViewHolder viewHolder= (ViewHolder) holder;
+
+        if (getPlayer1Color()){
+            SharedPreferences pref = contextActivity.getSharedPreferences("snakeandladder",MODE_PRIVATE);
+            player1color = pref.getInt("player_1_color",0);
+        }
+
+        if (getPlayer2Color()){
+            SharedPreferences pref = contextActivity.getSharedPreferences("snakeandladder",MODE_PRIVATE);
+            player2color = pref.getInt("player_2_color",0);
+        }
+
+        if (getPlayer3Color()){
+            SharedPreferences pref = contextActivity.getSharedPreferences("snakeandladder",MODE_PRIVATE);
+            player3color = pref.getInt("player_3_color",0);
+        }
+
         int numToDisplay=10*position+1;
+
+        ((ViewHolder) holder).one_o.setBackgroundColor(player1color);
+        ((ViewHolder) holder).two_o.setBackgroundColor(player1color);
+        ((ViewHolder) holder).three_o.setBackgroundColor(player1color);
+        ((ViewHolder) holder).four_o.setBackgroundColor(player1color);
+        ((ViewHolder) holder).five_o.setBackgroundColor(player1color);
+        ((ViewHolder) holder).six_o.setBackgroundColor(player1color);
+        ((ViewHolder) holder).seven_o.setBackgroundColor(player1color);
+        ((ViewHolder) holder).eight_o.setBackgroundColor(player1color);
+        ((ViewHolder) holder).nine_o.setBackgroundColor(player1color);
+        ((ViewHolder) holder).ten_o.setBackgroundColor(player1color);
+
+        ((ViewHolder) holder).one_t.setBackgroundColor(player2color);
+        ((ViewHolder) holder).two_t.setBackgroundColor(player2color);
+        ((ViewHolder) holder).three_t.setBackgroundColor(player2color);
+        ((ViewHolder) holder).four_t.setBackgroundColor(player2color);
+        ((ViewHolder) holder).five_t.setBackgroundColor(player2color);
+        ((ViewHolder) holder).six_t.setBackgroundColor(player2color);
+        ((ViewHolder) holder).seven_t.setBackgroundColor(player2color);
+        ((ViewHolder) holder).eight_t.setBackgroundColor(player2color);
+        ((ViewHolder) holder).nine_t.setBackgroundColor(player2color);
+        ((ViewHolder) holder).ten_t.setBackgroundColor(player2color);
+
+        ((ViewHolder) holder).one_th.setBackgroundColor(player3color);
+        ((ViewHolder) holder).two_th.setBackgroundColor(player3color);
+        ((ViewHolder) holder).three_th.setBackgroundColor(player3color);
+        ((ViewHolder) holder).four_th.setBackgroundColor(player3color);
+        ((ViewHolder) holder).five_th.setBackgroundColor(player3color);
+        ((ViewHolder) holder).six_th.setBackgroundColor(player3color);
+        ((ViewHolder) holder).seven_th.setBackgroundColor(player3color);
+        ((ViewHolder) holder).eight_th.setBackgroundColor(player3color);
+        ((ViewHolder) holder).nine_th.setBackgroundColor(player3color);
+        ((ViewHolder) holder).ten_th.setBackgroundColor(player3color);
 
         if(array[numToDisplay-1][1]==1){
             viewHolder.one.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.one_t.setVisibility(View.GONE);
-            viewHolder.one_th.setVisibility(View.GONE);
             viewHolder.one_o.setVisibility(View.VISIBLE);
+            if (array[numToDisplay-1][2]==1){
+                viewHolder.one_t.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.one_t.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.one_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.one_th.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][2]==1){
             viewHolder.one.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.one_o.setVisibility(View.GONE);
             viewHolder.one_t.setVisibility(View.VISIBLE);
-            viewHolder.one_th.setVisibility(View.GONE);
+            if (array[numToDisplay-1][1]==1){
+                viewHolder.one_o.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.one_o.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.one_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.one_th.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][3]==1){
             viewHolder.one.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.one_o.setVisibility(View.GONE);
-            viewHolder.one_t.setVisibility(View.GONE);
+
             viewHolder.one_th.setVisibility(View.VISIBLE);
+            if (array[numToDisplay-1][1]==1){
+                viewHolder.one_o.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.one_o.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][2]==1){
+                viewHolder.one_t.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.one_t.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][4]==1){
             viewHolder.one.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
             viewHolder.one_o.setVisibility(View.GONE);
@@ -137,7 +216,6 @@ public class TriPlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
 
         if (numToDisplay==1){
-            //viewHolder.one.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
             viewHolder.one.setBackground(contextActivity.getDrawable(R.drawable.start));
             viewHolder.one_n.setTextSize(1);
             viewHolder.one_n.setText("");
@@ -151,18 +229,42 @@ public class TriPlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         if(array[numToDisplay-1][1]==1){
             viewHolder.two.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
             viewHolder.two_o.setVisibility(View.VISIBLE);
-            viewHolder.two_t.setVisibility(View.GONE);
-            viewHolder.two_th.setVisibility(View.GONE);
+            if (array[numToDisplay-1][2]==1){
+                viewHolder.two_t.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.two_t.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.two_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.two_th.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][2]==1){
             viewHolder.two.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.two_o.setVisibility(View.GONE);
-            viewHolder.two_th.setVisibility(View.GONE);
             viewHolder.two_t.setVisibility(View.VISIBLE);
+            if (array[numToDisplay-1][1]==1){
+                viewHolder.two_o.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.two_o.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.two_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.two_th.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][3]==1){
             viewHolder.two.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.two_o.setVisibility(View.GONE);
-            viewHolder.two_t.setVisibility(View.GONE);
             viewHolder.two_th.setVisibility(View.VISIBLE);
+            if (array[numToDisplay-1][2]==1){
+                viewHolder.two_t.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.two_t.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][1]==1){
+                viewHolder.two_o.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.two_o.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][4]==1){
             viewHolder.two.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
             viewHolder.two_o.setVisibility(View.GONE);
@@ -188,18 +290,45 @@ public class TriPlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         if(array[numToDisplay-1][1]==1){
             viewHolder.three.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
             viewHolder.three_o.setVisibility(View.VISIBLE);
-            viewHolder.three_t.setVisibility(View.GONE);
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.three_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.three_th.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][2]==1){
+                viewHolder.three_t.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.three_t.setVisibility(View.GONE);
+            }
             viewHolder.three_th.setVisibility(View.GONE);
+
+
         }else if(array[numToDisplay-1][2]==1){
             viewHolder.three.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.three_o.setVisibility(View.GONE);
             viewHolder.three_t.setVisibility(View.VISIBLE);
-            viewHolder.three_th.setVisibility(View.GONE);
+            if (array[numToDisplay-1][1]==1){
+                viewHolder.three_o.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.three_o.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.three_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.three_th.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][3]==1){
             viewHolder.three.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.three_o.setVisibility(View.GONE);
-            viewHolder.three_t.setVisibility(View.GONE);
             viewHolder.three_th.setVisibility(View.VISIBLE);
+            if (array[numToDisplay-1][1]==1){
+                viewHolder.three_o.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.three_o.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][2]==1){
+                viewHolder.three_t.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.three_t.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][4]==1){
             viewHolder.three.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
             viewHolder.three_o.setVisibility(View.GONE);
@@ -224,19 +353,43 @@ public class TriPlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         if(array[numToDisplay-1][1]==1){
             viewHolder.four.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.four_t.setVisibility(View.GONE);
             viewHolder.four_o.setVisibility(View.VISIBLE);
-            viewHolder.four_th.setVisibility(View.GONE);
+            if (array[numToDisplay-1][2]==1){
+                viewHolder.four_t.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.four_t.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.four_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.four_th.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][2]==1){
             viewHolder.four.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.four_o.setVisibility(View.GONE);
             viewHolder.four_t.setVisibility(View.VISIBLE);
-            viewHolder.four_th.setVisibility(View.GONE);
+            if (array[numToDisplay-1][1]==1){
+                viewHolder.four_o.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.four_o.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.four_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.four_th.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][3]==1){
             viewHolder.four.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.four_o.setVisibility(View.GONE);
-            viewHolder.four_t.setVisibility(View.GONE);
             viewHolder.four_th.setVisibility(View.VISIBLE);
+            if (array[numToDisplay-1][1]==1){
+                viewHolder.four_o.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.four_o.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][2]==1){
+                viewHolder.four_t.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.four_t.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][4]==1){
             viewHolder.four.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
             viewHolder.four_o.setVisibility(View.GONE);
@@ -261,19 +414,43 @@ public class TriPlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         if(array[numToDisplay-1][1]==1){
             viewHolder.five.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.five_t.setVisibility(View.GONE);
             viewHolder.five_o.setVisibility(View.VISIBLE);
-            viewHolder.five_th.setVisibility(View.GONE);
+            if (array[numToDisplay-1][2]==1){
+                viewHolder.five_t.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.five_t.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.five_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.five_th.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][2]==1){
             viewHolder.five.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
             viewHolder.five_t.setVisibility(View.VISIBLE);
-            viewHolder.five_o.setVisibility(View.GONE);
-            viewHolder.five_th.setVisibility(View.GONE);
+            if (array[numToDisplay-1][1]==1){
+                viewHolder.five_o.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.five_o.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.five_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.five_th.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][3]==2){
             viewHolder.five.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.five_t.setVisibility(View.GONE);
-            viewHolder.five_o.setVisibility(View.GONE);
             viewHolder.five_th.setVisibility(View.VISIBLE);
+            if (array[numToDisplay-1][1]==1){
+                viewHolder.five_o.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.five_o.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][2]==1){
+                viewHolder.five_t.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.five_t.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][4]==3){
             viewHolder.five.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
             viewHolder.five_o.setVisibility(View.GONE);
@@ -298,19 +475,45 @@ public class TriPlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         if(array[numToDisplay-1][1]==1){
             viewHolder.six.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.six_t.setVisibility(View.GONE);
-            viewHolder.six_th.setVisibility(View.GONE);
             viewHolder.six_o.setVisibility(View.VISIBLE);
+            if (array[numToDisplay-1][2]==1){
+                viewHolder.six_t.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.six_t.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.six_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.six_th.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][2]==1){
             viewHolder.six.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.six_o.setVisibility(View.GONE);
             viewHolder.six_t.setVisibility(View.VISIBLE);
-            viewHolder.six_th.setVisibility(View.GONE);
+            if (array[numToDisplay-1][1]==1){
+                viewHolder.six_o.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.six_o.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.six_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.six_th.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][3]==1){
             viewHolder.six.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
             viewHolder.six_o.setVisibility(View.GONE);
             viewHolder.six_t.setVisibility(View.GONE);
             viewHolder.six_th.setVisibility(View.VISIBLE);
+            if (array[numToDisplay-1][1]==1){
+                viewHolder.six_o.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.six_o.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][2]==1){
+                viewHolder.six_t.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.six_t.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][4]==1){
             viewHolder.six.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
             viewHolder.six_o.setVisibility(View.GONE);
@@ -336,18 +539,42 @@ public class TriPlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         if(array[numToDisplay-1][1]==1){
             viewHolder.seven.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
             viewHolder.seven_o.setVisibility(View.VISIBLE);
-            viewHolder.seven_t.setVisibility(View.GONE);
-            viewHolder.seven_th.setVisibility(View.GONE);
+            if (array[numToDisplay-1][2]==1){
+                viewHolder.seven_t.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.seven_t.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.seven_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.seven_th.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][2]==1){
             viewHolder.seven.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.seven_o.setVisibility(View.GONE);
             viewHolder.seven_t.setVisibility(View.VISIBLE);
-            viewHolder.seven_th.setVisibility(View.GONE);
+            if (array[numToDisplay-1][1]==1){
+                viewHolder.seven_o.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.seven_o.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.seven_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.seven_th.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][3]==1){
             viewHolder.seven.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.seven_o.setVisibility(View.GONE);
             viewHolder.seven_th.setVisibility(View.VISIBLE);
-            viewHolder.seven_t.setVisibility(View.GONE);
+            if (array[numToDisplay-1][1]==1){
+                viewHolder.seven_o.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.seven_o.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][2]==1){
+                viewHolder.seven_t.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.seven_t.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][4]==1){
             viewHolder.seven.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
             viewHolder.seven_o.setVisibility(View.GONE);
@@ -372,19 +599,43 @@ public class TriPlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         if(array[numToDisplay-1][1]==1){
             viewHolder.eight.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.eight_t.setVisibility(View.GONE);
             viewHolder.eight_o.setVisibility(View.VISIBLE);
-            viewHolder.eight_th.setVisibility(View.GONE);
+            if (array[numToDisplay-1][2]==1){
+                viewHolder.eight_t.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.eight_t.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.eight_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.eight_th.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][2]==1){
             viewHolder.eight.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
             viewHolder.eight_t.setVisibility(View.VISIBLE);
-            viewHolder.eight_o.setVisibility(View.GONE);
-            viewHolder.eight_th.setVisibility(View.GONE);
+            if (array[numToDisplay-1][1]==1){
+                viewHolder.eight_o.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.eight_o.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.eight_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.eight_th.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][3]==1){
             viewHolder.eight.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.eight_t.setVisibility(View.GONE);
             viewHolder.eight_th.setVisibility(View.VISIBLE);
-            viewHolder.eight_o.setVisibility(View.GONE);
+            if (array[numToDisplay-1][1]==1){
+                viewHolder.eight_o.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.eight_o.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.eight_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.eight_th.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][4]==1){
             viewHolder.eight.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
             viewHolder.eight_o.setVisibility(View.GONE);
@@ -409,18 +660,42 @@ public class TriPlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         if(array[numToDisplay-1][1]==1){
             viewHolder.nine.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
             viewHolder.nine_o.setVisibility(View.VISIBLE);
-            viewHolder.nine_th.setVisibility(View.GONE);
-            viewHolder.nine_t.setVisibility(View.GONE);
+            if (array[numToDisplay-1][2]==1){
+                viewHolder.nine_t.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.nine_t.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.nine_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.nine_th.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][2]==1){
             viewHolder.nine.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.nine_o.setVisibility(View.GONE);
             viewHolder.nine_t.setVisibility(View.VISIBLE);
-            viewHolder.nine_th.setVisibility(View.GONE);
+            if (array[numToDisplay-1][1]==1){
+                viewHolder.nine_o.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.nine_o.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.nine_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.nine_th.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][3]==1){
             viewHolder.nine.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.nine_o.setVisibility(View.GONE);
-            viewHolder.nine_t.setVisibility(View.GONE);
             viewHolder.nine_th.setVisibility(View.VISIBLE);
+            if (array[numToDisplay-1][1]==1){
+                viewHolder.nine_o.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.nine_o.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][2]==1){
+                viewHolder.nine_t.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.nine_t.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][4]==1){
             viewHolder.nine.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
             viewHolder.nine_o.setVisibility(View.GONE);
@@ -445,18 +720,42 @@ public class TriPlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         if(array[numToDisplay-1][1]==1){
             viewHolder.ten.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
             viewHolder.ten_o.setVisibility(View.VISIBLE);
-            viewHolder.ten_t.setVisibility(View.GONE);
-            viewHolder.ten_th.setVisibility(View.GONE);
+            if (array[numToDisplay-1][2]==1){
+                viewHolder.ten_t.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.ten_t.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.ten_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.ten_th.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][2]==1){
             viewHolder.ten.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.ten_o.setVisibility(View.GONE);
             viewHolder.ten_t.setVisibility(View.VISIBLE);
-            viewHolder.ten_th.setVisibility(View.GONE);
+            if (array[numToDisplay-1][1]==1){
+                viewHolder.ten_o.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.ten_o.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][3]==1){
+                viewHolder.ten_th.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.ten_th.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][3]==1){
             viewHolder.ten.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
-            viewHolder.ten_o.setVisibility(View.GONE);
-            viewHolder.ten_t.setVisibility(View.GONE);
             viewHolder.ten_th.setVisibility(View.VISIBLE);
+            if (array[numToDisplay-1][1]==1){
+                viewHolder.ten_o.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.ten_o.setVisibility(View.GONE);
+            }
+            if (array[numToDisplay-1][2]==1){
+                viewHolder.ten_t.setVisibility(View.VISIBLE);
+            }else{
+                viewHolder.ten_t.setVisibility(View.GONE);
+            }
         }else if(array[numToDisplay-1][4]==1){
             viewHolder.ten.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
             viewHolder.ten_o.setVisibility(View.GONE);
@@ -476,7 +775,6 @@ public class TriPlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
 
         if (numToDisplay==100){
-            //viewHolder.ten.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
             viewHolder.ten.setBackground(contextActivity.getDrawable(R.drawable.finish));
             viewHolder.ten_n.setTextSize(1);
             viewHolder.ten_n.setText("");
@@ -489,5 +787,32 @@ public class TriPlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     @Override
     public int getItemCount() {
         return 10;
+    }
+
+    private boolean getPlayer1Color() {
+        SharedPreferences pref = contextActivity.getSharedPreferences("snakeandladder",MODE_PRIVATE);
+        int player1color = pref.getInt("player_1_color",0);
+        if (player1color!=0)
+            return true;
+        else
+            return false;
+    }
+
+    private boolean getPlayer2Color() {
+        SharedPreferences pref = contextActivity.getSharedPreferences("snakeandladder",MODE_PRIVATE);
+        int player2color = pref.getInt("player_2_color",0);
+        if (player2color!=0)
+            return true;
+        else
+            return false;
+    }
+
+    private boolean getPlayer3Color() {
+        SharedPreferences pref = contextActivity.getSharedPreferences("snakeandladder",MODE_PRIVATE);
+        int player3color = pref.getInt("player_3_color",0);
+        if (player3color!=0)
+            return true;
+        else
+            return false;
     }
 }

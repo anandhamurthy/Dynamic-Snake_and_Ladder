@@ -44,9 +44,8 @@ public class DualPlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dual_player);
 
-        Intent intent = getIntent();
         soundPlayer = new SoundPlayer(this);
-        if (intent.getBooleanExtra("music", true)){
+        if (Music_Of_User()){
             soundPlayer.playBGM();
         }
 
@@ -143,6 +142,7 @@ public class DualPlayerActivity extends AppCompatActivity {
                 if(isPlaying_1) {
                     Random random=new Random();
                     int g=random.nextInt(5)+1;//generate random no.
+                    soundPlayer.Play_Dice_Sound();
                     changeDice(g);
                     player_1(g);
 
@@ -180,6 +180,7 @@ public class DualPlayerActivity extends AppCompatActivity {
                 if(isPlaying_2) {
                     Random random=new Random();
                     int g=random.nextInt(5)+1;//generate random no.
+                    soundPlayer.Play_Dice_Sound();
                     changeDice(g);
                     player_2(g);
 
@@ -243,9 +244,11 @@ public class DualPlayerActivity extends AppCompatActivity {
             recyclerView.getAdapter().notifyDataSetChanged();
             present_1=present_1+dieAdd;
             Player_1_Place.setText(present_1+"");
+            soundPlayer.Play_Move_Sound();
             for (int i=0;i<LadderPlace.size();i++){
                 if (LadderPlace.get(i)==present_1){
                     getSnakeLadder("ladder");
+                    soundPlayer.Play_Ladder_Sound();
                     Toast.makeText(this, "Ladder = "+LadderValue.get(i), Toast.LENGTH_SHORT).show();
                     present_1+=LadderValue.get(i);
                 }
@@ -253,6 +256,7 @@ public class DualPlayerActivity extends AppCompatActivity {
             for (int i=0;i<SnakePlace.size();i++){
                 if (SnakePlace.get(i)==present_1){
                     getSnakeLadder("snake");
+                    soundPlayer.Play_Snake_Sound();
                     Toast.makeText(this, "Snake = "+SnakeValue.get(i), Toast.LENGTH_SHORT).show();
                     present_1-=SnakeValue.get(i);
                 }
@@ -272,9 +276,11 @@ public class DualPlayerActivity extends AppCompatActivity {
             recyclerView.getAdapter().notifyDataSetChanged();
             present_2=present_2+dieAdd;
             Player_2_Place.setText(present_2+"");
+            soundPlayer.Play_Move_Sound();
             for (int i=0;i<LadderPlace.size();i++){
                 if (LadderPlace.get(i)==present_2){
                     getSnakeLadder("ladder");
+                    soundPlayer.Play_Ladder_Sound();
                     Toast.makeText(this, "Ladder = "+LadderValue.get(i), Toast.LENGTH_SHORT).show();
                     present_2+=LadderValue.get(i);
                 }
@@ -282,6 +288,7 @@ public class DualPlayerActivity extends AppCompatActivity {
             for (int i=0;i<SnakePlace.size();i++){
                 if (SnakePlace.get(i)==present_2){
                     getSnakeLadder("snake");
+                    soundPlayer.Play_Snake_Sound();
                     Toast.makeText(this, "Snake = "+SnakeValue.get(i), Toast.LENGTH_SHORT).show();
                     present_2-=SnakeValue.get(i);
                 }
@@ -504,5 +511,11 @@ public class DualPlayerActivity extends AppCompatActivity {
                         finish();
                     }
                 }).create().show();
+    }
+
+    private boolean Music_Of_User() {
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("snakeandladder",MODE_PRIVATE);
+        Boolean isIntroActivityOpnendBefore = pref.getBoolean("isMusic",true);
+        return  isIntroActivityOpnendBefore;
     }
 }

@@ -4,36 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/bg_por"
     tools:context=".ProfileActivity">
 
     <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="10dp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_margin="@dimen/_10sdp"
         android:id="@+id/toolbar"
         android:background="@drawable/toolbar_rounded">
 
 
         <ImageView
             android:id="@+id/back"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
             android:layout_centerVertical="true"
             android:src="@drawable/back"
-            android:layout_marginStart="10dp"/>
+            android:layout_marginStart="@dimen/_10sdp"/>
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/back"
             android:textColor="@color/colorBlack"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="@dimen/_10sdp"
             android:fontFamily="@font/nunito_sans_bold"
             android:text="Profile"
-            android:textSize="15dp" />
+            android:textSize="@dimen/_12sdp" />
 
 
     </RelativeLayout>
@@ -44,11 +44,11 @@
         android:layout_height="wrap_content">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="150dp"
-            android:layout_margin="20dp"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_margin="@dimen/_15sdp"
             android:src="@drawable/profile"
             app:civ_fill_color="@color/colorWhite"
-            android:layout_height="150dp"
+            android:layout_height="@dimen/_100sdp"
             android:id="@+id/profile_image"
             android:layout_centerHorizontal="true"
             />
@@ -56,37 +56,36 @@
         <RelativeLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:gravity="center"
-            android:layout_marginRight="40dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
             android:layout_centerHorizontal="true"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_below="@+id/profile_image"
             android:background="@drawable/toolbar_rounded">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_toLeftOf="@+id/edit_button"
-                android:layout_margin="5dp"
+                android:layout_margin="@dimen/_5sdp"
+                android:gravity="center"
                 android:id="@+id/profile_user_name"
                 android:layout_centerVertical="true"
                 android:textColor="@color/colorBlack"
                 android:fontFamily="@font/nunito_sans_bold"
                 android:text="Player Name"
-                android:textSize="18dp" />
+                android:textSize="@dimen/_15sdp" />
 
 
             <ImageView
                 android:id="@+id/edit_button"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_margin="5dp"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_margin="@dimen/_5sdp"
                 android:src="@drawable/edit"
                 android:layout_alignParentRight="true"
                 android:background="@drawable/edit_rounded"
-                android:padding="10dp"
+                android:padding="@dimen/_10sdp"
                 android:layout_centerVertical="true"
                 android:scaleType="centerInside"/>
 

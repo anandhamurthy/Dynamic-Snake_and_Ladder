@@ -27,10 +27,14 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private Animation Top_Animation, Bottom_Animation, Right_Animation, Left_Animation;
 
+    private SoundPlayer soundPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
+        soundPlayer = new SoundPlayer(this);
 
         Settings = findViewById(R.id.settings);
         Music = findViewById(R.id.music);
@@ -73,6 +77,7 @@ public class WelcomeActivity extends AppCompatActivity {
         Settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                soundPlayer.Play_Move_Sound();
                 startActivity(new Intent(WelcomeActivity.this, SettingsActivity.class));
             }
         });
@@ -85,6 +90,7 @@ public class WelcomeActivity extends AppCompatActivity {
         Music.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                soundPlayer.Play_Move_Sound();
                 if (Music_Of_User()) {
                     Music.setImageResource(R.drawable.music_off);
                     savePrefsData(false);
@@ -98,6 +104,7 @@ public class WelcomeActivity extends AppCompatActivity {
         Profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                soundPlayer.Play_Move_Sound();
                 startActivity(new Intent(WelcomeActivity.this, ProfileActivity.class));
             }
         });
@@ -105,8 +112,8 @@ public class WelcomeActivity extends AppCompatActivity {
         Play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                soundPlayer.Play_Move_Sound();
                 Intent intent = new Intent(WelcomeActivity.this, SelectPlayersActivity.class);
-                intent.putExtra("music",Music_Of_User());
                 startActivity(intent);
                 finish();
             }
@@ -115,7 +122,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private boolean Music_Of_User() {
         SharedPreferences pref = getApplicationContext().getSharedPreferences("snakeandladder",MODE_PRIVATE);
-        Boolean isIntroActivityOpnendBefore = pref.getBoolean("isMusic",false);
+        Boolean isIntroActivityOpnendBefore = pref.getBoolean("isMusic",true);
         return  isIntroActivityOpnendBefore;
     }
 

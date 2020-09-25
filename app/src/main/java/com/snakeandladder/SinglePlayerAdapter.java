@@ -1,6 +1,8 @@
 package com.snakeandladder;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,12 +17,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import static android.content.Context.MODE_PRIVATE;
+
 
 public class SinglePlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     Context contextActivity;
     int array[][];
     Drawable drawable;
-
+    int player1color;
+    
     public SinglePlayerAdapter(SinglePlayerActivity singlePlayerActivity, int[][] a, Drawable drawable) {
         contextActivity=singlePlayerActivity;
         array=a;
@@ -80,16 +85,38 @@ public class SinglePlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         ViewHolder viewHolder= (ViewHolder) holder;
+
+        if (getPlayer1Color()){
+            SharedPreferences pref = contextActivity.getSharedPreferences("snakeandladder",MODE_PRIVATE);
+            player1color = pref.getInt("player_1_color",0);
+        }
+        
         int numToDisplay=10*position+1;
+
+        ((ViewHolder) holder).one_o.setBackgroundColor(player1color);
+        ((ViewHolder) holder).two_o.setBackgroundColor(player1color);
+        ((ViewHolder) holder).three_o.setBackgroundColor(player1color);
+        ((ViewHolder) holder).four_o.setBackgroundColor(player1color);
+        ((ViewHolder) holder).five_o.setBackgroundColor(player1color);
+        ((ViewHolder) holder).six_o.setBackgroundColor(player1color);
+        ((ViewHolder) holder).seven_o.setBackgroundColor(player1color);
+        ((ViewHolder) holder).eight_o.setBackgroundColor(player1color);
+        ((ViewHolder) holder).nine_o.setBackgroundColor(player1color);
+        ((ViewHolder) holder).ten_o.setBackgroundColor(player1color);
 
         if(array[numToDisplay-1][1]==1){
             viewHolder.one.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
             viewHolder.one_o.setVisibility(View.VISIBLE);
         }else if(array[numToDisplay-1][2]==1){
-            viewHolder.one.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
+            viewHolder.one.setBackgroundResource(R.drawable.ladder_ani);
+            AnimationDrawable frameAnimation = (AnimationDrawable) viewHolder.one.getBackground();
+            frameAnimation.start();
+            //viewHolder.one.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
             viewHolder.one_o.setVisibility(View.GONE);
         }else if(array[numToDisplay-1][4]==1){
-            viewHolder.one.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorRed));
+            viewHolder.one.setBackgroundResource(R.drawable.snake_ani);
+            AnimationDrawable frameAnimation = (AnimationDrawable) viewHolder.one.getBackground();
+            frameAnimation.start();
             viewHolder.one_o.setVisibility(View.GONE);
         }else {
             viewHolder.one.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorGrey));
@@ -112,10 +139,14 @@ public class SinglePlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             viewHolder.two.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
             viewHolder.two_o.setVisibility(View.VISIBLE);
         }else if(array[numToDisplay-1][2]==1){
-            viewHolder.two.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
+            viewHolder.two.setBackgroundResource(R.drawable.ladder_ani);
+            AnimationDrawable frameAnimation = (AnimationDrawable) viewHolder.two.getBackground();
+            frameAnimation.start();
             viewHolder.two_o.setVisibility(View.GONE);
         }else if(array[numToDisplay-1][4]==1){
-            viewHolder.two.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorRed));
+            viewHolder.two.setBackgroundResource(R.drawable.snake_ani);
+            AnimationDrawable frameAnimation = (AnimationDrawable) viewHolder.two.getBackground();
+            frameAnimation.start();
             viewHolder.two_o.setVisibility(View.GONE);
         } else {
             viewHolder.two.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorGrey));
@@ -130,10 +161,14 @@ public class SinglePlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             viewHolder.three.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
             viewHolder.three_o.setVisibility(View.VISIBLE);
         }else if(array[numToDisplay-1][2]==1){
-            viewHolder.three.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
+            viewHolder.three.setBackgroundResource(R.drawable.ladder_ani);
+            AnimationDrawable frameAnimation = (AnimationDrawable) viewHolder.three.getBackground();
+            frameAnimation.start();
             viewHolder.three_o.setVisibility(View.GONE);
         }else if(array[numToDisplay-1][4]==1){
-            viewHolder.three.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorRed));
+            viewHolder.three.setBackgroundResource(R.drawable.snake_ani);
+            AnimationDrawable frameAnimation = (AnimationDrawable) viewHolder.three.getBackground();
+            frameAnimation.start();
             viewHolder.three_o.setVisibility(View.GONE);
         } else {
             viewHolder.three.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorGrey));
@@ -147,10 +182,14 @@ public class SinglePlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             viewHolder.four.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
             viewHolder.four_o.setVisibility(View.VISIBLE);
         }else if(array[numToDisplay-1][2]==1){
-            viewHolder.four.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
+            viewHolder.four.setBackgroundResource(R.drawable.ladder_ani);
+            AnimationDrawable frameAnimation = (AnimationDrawable) viewHolder.four.getBackground();
+            frameAnimation.start();
             viewHolder.four_o.setVisibility(View.GONE);
         }else if(array[numToDisplay-1][4]==1){
-            viewHolder.four.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorRed));
+            viewHolder.four.setBackgroundResource(R.drawable.snake_ani);
+            AnimationDrawable frameAnimation = (AnimationDrawable) viewHolder.four.getBackground();
+            frameAnimation.start();
             viewHolder.four_o.setVisibility(View.GONE);
         }else {
             viewHolder.four.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorGrey));
@@ -165,10 +204,14 @@ public class SinglePlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             viewHolder.five.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
             viewHolder.five_o.setVisibility(View.VISIBLE);
         }else if(array[numToDisplay-1][2]==1){
-            viewHolder.five.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
+            viewHolder.five.setBackgroundResource(R.drawable.ladder_ani);
+            AnimationDrawable frameAnimation = (AnimationDrawable) viewHolder.five.getBackground();
+            frameAnimation.start();
             viewHolder.five_o.setVisibility(View.GONE);
         }else if(array[numToDisplay-1][4]==1){
-            viewHolder.five.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorRed));
+            viewHolder.five.setBackgroundResource(R.drawable.snake_ani);
+            AnimationDrawable frameAnimation = (AnimationDrawable) viewHolder.five.getBackground();
+            frameAnimation.start();
             viewHolder.five_o.setVisibility(View.GONE);
         }else {
             viewHolder.five.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorGrey));
@@ -183,10 +226,14 @@ public class SinglePlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             viewHolder.six.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
             viewHolder.six_o.setVisibility(View.VISIBLE);
         }else if(array[numToDisplay-1][2]==1){
-            viewHolder.six.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
+            viewHolder.six.setBackgroundResource(R.drawable.ladder_ani);
+            AnimationDrawable frameAnimation = (AnimationDrawable) viewHolder.six.getBackground();
+            frameAnimation.start();
             viewHolder.six_o.setVisibility(View.GONE);
         }else if(array[numToDisplay-1][4]==1){
-            viewHolder.six.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorRed));
+            viewHolder.six.setBackgroundResource(R.drawable.snake_ani);
+            AnimationDrawable frameAnimation = (AnimationDrawable) viewHolder.six.getBackground();
+            frameAnimation.start();
             viewHolder.six_o.setVisibility(View.GONE);
         }else {
             viewHolder.six.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorGrey));
@@ -201,9 +248,14 @@ public class SinglePlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             viewHolder.seven.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
             viewHolder.seven_o.setVisibility(View.VISIBLE);
         }else if(array[numToDisplay-1][2]==1){
-            viewHolder.seven.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
+            viewHolder.seven.setBackgroundResource(R.drawable.ladder_ani);
+            AnimationDrawable frameAnimation = (AnimationDrawable) viewHolder.seven.getBackground();
+            frameAnimation.start();
+            viewHolder.seven_o.setVisibility(View.GONE);
         }else if(array[numToDisplay-1][4]==1){
-            viewHolder.seven.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorRed));
+            viewHolder.seven.setBackgroundResource(R.drawable.snake_ani);
+            AnimationDrawable frameAnimation = (AnimationDrawable) viewHolder.seven.getBackground();
+            frameAnimation.start();
             viewHolder.seven_o.setVisibility(View.GONE);
         }else {
             viewHolder.seven.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorGrey));
@@ -218,10 +270,14 @@ public class SinglePlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             viewHolder.eight.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
             viewHolder.eight_o.setVisibility(View.VISIBLE);
         }else if(array[numToDisplay-1][2]==1){
-            viewHolder.eight.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
+            viewHolder.eight.setBackgroundResource(R.drawable.ladder_ani);
+            AnimationDrawable frameAnimation = (AnimationDrawable) viewHolder.eight.getBackground();
+            frameAnimation.start();
             viewHolder.eight_o.setVisibility(View.GONE);
         }else if(array[numToDisplay-1][4]==1){
-            viewHolder.eight.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorRed));
+            viewHolder.eight.setBackgroundResource(R.drawable.snake_ani);
+            AnimationDrawable frameAnimation = (AnimationDrawable) viewHolder.eight.getBackground();
+            frameAnimation.start();
             viewHolder.eight_o.setVisibility(View.GONE);
         }else {
             viewHolder.eight.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorGrey));
@@ -236,10 +292,14 @@ public class SinglePlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             viewHolder.nine.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
             viewHolder.nine_o.setVisibility(View.VISIBLE);
         }else if(array[numToDisplay-1][2]==1){
-            viewHolder.nine.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
+            viewHolder.nine.setBackgroundResource(R.drawable.ladder_ani);
+            AnimationDrawable frameAnimation = (AnimationDrawable) viewHolder.nine.getBackground();
+            frameAnimation.start();
             viewHolder.nine_o.setVisibility(View.GONE);
         }else if(array[numToDisplay-1][4]==1){
-            viewHolder.nine.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorRed));
+            viewHolder.nine.setBackgroundResource(R.drawable.snake_ani);
+            AnimationDrawable frameAnimation = (AnimationDrawable) viewHolder.nine.getBackground();
+            frameAnimation.start();
             viewHolder.nine_o.setVisibility(View.GONE);
         }else {
             viewHolder.nine.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorGrey));
@@ -254,10 +314,14 @@ public class SinglePlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             viewHolder.ten.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorYellow));
             viewHolder.ten_o.setVisibility(View.VISIBLE);
         }else if(array[numToDisplay-1][2]==1){
-            viewHolder.ten.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorBlue));
+            viewHolder.ten.setBackgroundResource(R.drawable.ladder_ani);
+            AnimationDrawable frameAnimation = (AnimationDrawable) viewHolder.ten.getBackground();
+            frameAnimation.start();
             viewHolder.ten_o.setVisibility(View.GONE);
         }else if(array[numToDisplay-1][4]==1){
-            viewHolder.ten.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorRed));
+            viewHolder.ten.setBackgroundResource(R.drawable.snake_ani);
+            AnimationDrawable frameAnimation = (AnimationDrawable) viewHolder.ten.getBackground();
+            frameAnimation.start();
             viewHolder.ten_o.setVisibility(View.GONE);
         }else {
             viewHolder.ten.setBackgroundColor(contextActivity.getResources().getColor(R.color.colorGrey));
@@ -277,5 +341,14 @@ public class SinglePlayerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public int getItemCount() {
         return 10;
+    }
+
+    private boolean getPlayer1Color() {
+        SharedPreferences pref = contextActivity.getSharedPreferences("snakeandladder",MODE_PRIVATE);
+        int player1color = pref.getInt("player_1_color",0);
+        if (player1color!=0)
+            return true;
+        else
+            return false;
     }
 }

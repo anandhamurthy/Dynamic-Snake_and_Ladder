@@ -18,19 +18,19 @@ public class SelectPlayersActivity extends AppCompatActivity {
 
     private ImageView Ladder, Snake;
     private TextView One, Two, Three;
-    private boolean music;
 
     private RelativeLayout Select_Players;
 
     private Animation Top_Animation, Bottom_Animation, Right_Animation, Left_Animation;
+
+    private SoundPlayer soundPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_players);
 
-        Intent intent = getIntent();
-        music = intent.getBooleanExtra("music", true);
+        soundPlayer = new SoundPlayer(this);
 
         One = findViewById(R.id.one);
         Two = findViewById(R.id.two);
@@ -63,8 +63,8 @@ public class SelectPlayersActivity extends AppCompatActivity {
         One.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                soundPlayer.Play_Move_Sound();
                 Intent intent = new Intent(SelectPlayersActivity.this, SinglePlayerActivity.class);
-                intent.putExtra("music", music);
                 startActivity(intent);
                 finish();
             }
@@ -73,8 +73,8 @@ public class SelectPlayersActivity extends AppCompatActivity {
         Two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                soundPlayer.Play_Move_Sound();
                 Intent intent = new Intent(SelectPlayersActivity.this, DualPlayerActivity.class);
-                intent.putExtra("music", music);
                 startActivity(intent);
                 finish();
             }
@@ -83,8 +83,8 @@ public class SelectPlayersActivity extends AppCompatActivity {
         Three.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                soundPlayer.Play_Move_Sound();
                 Intent intent = new Intent(SelectPlayersActivity.this, TriPlayerActivity.class);
-                intent.putExtra("music", music);
                 startActivity(intent);
                 finish();
             }

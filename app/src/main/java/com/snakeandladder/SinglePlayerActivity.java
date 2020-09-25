@@ -44,8 +44,11 @@ public class SinglePlayerActivity extends AppCompatActivity {
     private CircleImageView Player_1_Image;
 
     int present=0;
+
     int a[][]= new int[100][7];
+
     int k=0;
+
     boolean isPlaying=false;
 
     private ArrayList<Integer> LadderValue, SnakeValue, LadderPlace, SnakePlace;
@@ -57,12 +60,11 @@ public class SinglePlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_player);
 
-        Intent intent = getIntent();
         soundPlayer = new SoundPlayer(this);
-        if (intent.getBooleanExtra("music", true)){
-
+        if (Music_Of_User()) {
             soundPlayer.playBGM();
         }
+
         LadderValue = new ArrayList<>();
         LadderPlace = new ArrayList<>();
 
@@ -89,7 +91,6 @@ public class SinglePlayerActivity extends AppCompatActivity {
                     a[k][5]=0;
                 }
             }
-            //a[i][0]=i+1; a[i][1]=0;
         }
 
         Dice = findViewById(R.id.dice);
@@ -110,6 +111,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
                 {
                     Random random=new Random();
                     int g=random.nextInt(5)+1;//generate random no.
+                    soundPlayer.Play_Dice_Sound();
                     changeDice(g);
                     player(g);
                     removeOldLadderSnake();
@@ -164,11 +166,12 @@ public class SinglePlayerActivity extends AppCompatActivity {
             recyclerView.getAdapter().notifyDataSetChanged();
             present=present+dieAdd;
             Player_1_Place.setText(present+"");
+            soundPlayer.Play_Move_Sound();
             for (int i=0;i<LadderPlace.size();i++){
                 if (LadderPlace.get(i)==present){
 
                     getSnakeLadder("ladder");
-
+                    soundPlayer.Play_Ladder_Sound();
                     Toast.makeText(this, "Ladder = "+LadderValue.get(i), Toast.LENGTH_SHORT).show();
                     present+=LadderValue.get(i);
                 }
@@ -177,7 +180,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
                 if (SnakePlace.get(i)==present){
 
                     getSnakeLadder("snake");
-
+                    soundPlayer.Play_Snake_Sound();
                     Toast.makeText(this, "Snake = "+SnakeValue.get(i), Toast.LENGTH_SHORT).show();
                     present-=SnakeValue.get(i);
                 }
@@ -233,6 +236,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
         a[present-1][1]=0;
         recyclerView.getAdapter().notifyDataSetChanged();
         isPlaying=false;
+        soundPlayer.Play_Victory();
         Toast.makeText(this, "You Won", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "Player 1 Won", Toast.LENGTH_SHORT).show();
         Intent intent1 = new Intent(SinglePlayerActivity.this, WinnersActivity.class);
@@ -294,7 +298,7 @@ public class SinglePlayerActivity extends AppCompatActivity {
 
     private void getNewLadder(){
 
-        for(int i=0;i<7;i++){
+        for(int i=0;i<10;i++){
             Random random=new Random();
             int ladder_place = random.nextInt(97-11) + 11;
             int ladder_value = random.nextInt(5) + 1;
@@ -307,15 +311,26 @@ public class SinglePlayerActivity extends AppCompatActivity {
     }
 
     private void getNewSnake(){
-        for(int i=0;i<7;i++){
+        for(int i=0;i<10;i++){
             Random random=new Random();
             int snake_place = random.nextInt(97-11) + 11;
             int snake_value = random.nextInt(5) + 1;
-            a[snake_place][4]=1;
-            a[snake_place][5]=snake_value;
-            SnakeValue.add(snake_value);
-            SnakePlace.add(snake_place);
-            recyclerView.getAdapter().notifyDataSetChanged();
+            if (LadderPlace.size()!=0){
+                if (!LadderPlace.contains(snake_place)){
+                    a[snake_place][4]=1;
+                    a[snake_place][5]=snake_value;
+                    SnakeValue.add(snake_value);
+                    SnakePlace.add(snake_place);
+                    recyclerView.getAdapter().notifyDataSetChanged();
+                }
+            }else{
+                a[snake_place][4]=1;
+                a[snake_place][5]=snake_value;
+                SnakeValue.add(snake_value);
+                SnakePlace.add(snake_place);
+                recyclerView.getAdapter().notifyDataSetChanged();
+            }
+
         }
     }
 
@@ -360,6 +375,12 @@ public class SinglePlayerActivity extends AppCompatActivity {
                         finish();
                     }
                 }).create().show();
+    }
+
+    private boolean Music_Of_User() {
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("snakeandladder",MODE_PRIVATE);
+        Boolean isIntroActivityOpnendBefore = pref.getBoolean("isMusic",true);
+        return  isIntroActivityOpnendBefore;
     }
 
 }

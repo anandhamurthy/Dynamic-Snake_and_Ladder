@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_land"
+    tools:context=".WelcomeActivity">
+
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_marginTop="-5dp"
+        android:layout_alignParentLeft="true"
+        android:layout_height="300dp"
+        android:id="@+id/ladder"/>
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_height="300dp"
+        android:id="@+id/snake"/>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="right"
+        android:layout_margin="10dp"
+        android:layout_centerHorizontal="true">
+
+
+        <ImageView
+            android:id="@+id/music"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/music_on"
+            android:layout_weight="0"
+            android:background="@drawable/icon_rounded"
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            android:layout_marginRight="@dimen/_3sdp"
+            android:layout_marginLeft="@dimen/_3sdp"/>
+
+        <ImageView
+            android:id="@+id/settings"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/settings"
+            android:layout_toRightOf="@+id/music"
+            android:background="@drawable/icon_rounded"
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            android:layout_marginRight="@dimen/_3sdp"
+            android:layout_marginLeft="@dimen/_3sdp"/>
+
+        <ImageView
+            android:id="@+id/profile"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/profile"
+            android:layout_toRightOf="@+id/settings"
+            android:background="@drawable/icon_rounded"
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="@dimen/_80sdp"
+        android:gravity="center"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_centerInParent="true"
+        android:id="@+id/play_button"
+        android:background="@drawable/rounded">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/play"
+            android:textColor="@color/colorBlack"
+            android:fontFamily="@font/nunito_sans_bold"
+            android:text="Play"
+            android:textSize="@dimen/_15sdp" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

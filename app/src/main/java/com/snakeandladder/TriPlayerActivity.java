@@ -6,8 +6,11 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,9 +47,8 @@ public class TriPlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tri_player);
 
-        Intent intent = getIntent();
         soundPlayer = new SoundPlayer(this);
-        if (intent.getBooleanExtra("music", true)){
+        if (Music_Of_User()){
 
             soundPlayer.playBGM();
         }
@@ -166,6 +168,7 @@ public class TriPlayerActivity extends AppCompatActivity {
                 if(isPlaying_1) {
                     Random random=new Random();
                     int g=random.nextInt(5)+1;//generate random no.
+                    soundPlayer.Play_Dice_Sound();
                     changeDice(g);
                     player_1(g);
 
@@ -205,6 +208,7 @@ public class TriPlayerActivity extends AppCompatActivity {
                 if(isPlaying_2) {
                     Random random=new Random();
                     int g=random.nextInt(5)+1;//generate random no.
+                    soundPlayer.Play_Dice_Sound();
                     changeDice(g);
                     player_2(g);
 
@@ -232,6 +236,9 @@ public class TriPlayerActivity extends AppCompatActivity {
                     int player3color = pref.getInt("player_3_color",0);
                     Dice.setColorFilter(player3color, android.graphics.PorterDuff.Mode.SRC_IN);
                 }
+                removeOldLadderSnake();
+                getNewLadder();
+                getNewSnake();
 
             }
         });
@@ -242,6 +249,7 @@ public class TriPlayerActivity extends AppCompatActivity {
                 if(isPlaying_3) {
                     Random random=new Random();
                     int g=random.nextInt(5)+1;//generate random no.
+                    soundPlayer.Play_Dice_Sound();
                     changeDice(g);
                     player_3(g);
 
@@ -269,6 +277,9 @@ public class TriPlayerActivity extends AppCompatActivity {
                     int player1dicecolor = pref.getInt("player_1_dice_color",0);
                     Dice.setColorFilter(player1dicecolor, android.graphics.PorterDuff.Mode.SRC_IN);
                 }
+                removeOldLadderSnake();
+                getNewLadder();
+                getNewSnake();
 
             }
         });
@@ -308,9 +319,11 @@ public class TriPlayerActivity extends AppCompatActivity {
             recyclerView.getAdapter().notifyDataSetChanged();
             present_1=present_1+dieAdd;
             Player_1_Place.setText(present_1+"");
+            soundPlayer.Play_Move_Sound();
             for (int i=0;i<LadderPlace.size();i++){
                 if (LadderPlace.get(i)==present_1){
                     getSnakeLadder("ladder");
+                    soundPlayer.Play_Ladder_Sound();
                     Toast.makeText(this, "Ladder = "+LadderValue.get(i), Toast.LENGTH_SHORT).show();
                     present_1+=LadderValue.get(i);
                 }
@@ -318,6 +331,7 @@ public class TriPlayerActivity extends AppCompatActivity {
             for (int i=0;i<SnakePlace.size();i++){
                 if (SnakePlace.get(i)==present_1){
                     getSnakeLadder("snake");
+                    soundPlayer.Play_Snake_Sound();
                     Toast.makeText(this, "Snake = "+SnakeValue.get(i), Toast.LENGTH_SHORT).show();
                     present_1-=SnakeValue.get(i);
                 }
@@ -337,9 +351,11 @@ public class TriPlayerActivity extends AppCompatActivity {
             recyclerView.getAdapter().notifyDataSetChanged();
             present_2=present_2+dieAdd;
             Player_2_Place.setText(present_2+"");
+            soundPlayer.Play_Move_Sound();
             for (int i=0;i<LadderPlace.size();i++){
                 if (LadderPlace.get(i)==present_2){
                     getSnakeLadder("ladder");
+                    soundPlayer.Play_Ladder_Sound();
                     Toast.makeText(this, "Ladder = "+LadderValue.get(i), Toast.LENGTH_SHORT).show();
                     present_2+=LadderValue.get(i);
                 }
@@ -347,6 +363,7 @@ public class TriPlayerActivity extends AppCompatActivity {
             for (int i=0;i<SnakePlace.size();i++){
                 if (SnakePlace.get(i)==present_2){
                     getSnakeLadder("snake");
+                    soundPlayer.Play_Snake_Sound();
                     Toast.makeText(this, "Snake = "+SnakeValue.get(i), Toast.LENGTH_SHORT).show();
                     present_2-=SnakeValue.get(i);
                 }
@@ -367,9 +384,11 @@ public class TriPlayerActivity extends AppCompatActivity {
             recyclerView.getAdapter().notifyDataSetChanged();
             present_3=present_3+dieAdd;
             Player_3_Place.setText(present_3+"");
+            soundPlayer.Play_Move_Sound();
             for (int i=0;i<LadderPlace.size();i++){
                 if (LadderPlace.get(i)==present_3){
                     getSnakeLadder("ladder");
+                    soundPlayer.Play_Ladder_Sound();
                     Toast.makeText(this, "Ladder = "+LadderValue.get(i), Toast.LENGTH_SHORT).show();
                     present_3+=LadderValue.get(i);
                 }
@@ -377,6 +396,7 @@ public class TriPlayerActivity extends AppCompatActivity {
             for (int i=0;i<SnakePlace.size();i++){
                 if (SnakePlace.get(i)==present_3){
                     getSnakeLadder("snake");
+                    soundPlayer.Play_Snake_Sound();
                     Toast.makeText(this, "Snake = "+SnakeValue.get(i), Toast.LENGTH_SHORT).show();
                     present_3-=SnakeValue.get(i);
                 }
@@ -627,5 +647,11 @@ public class TriPlayerActivity extends AppCompatActivity {
                         finish();
                     }
                 }).create().show();
+    }
+
+    private boolean Music_Of_User() {
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("snakeandladder",MODE_PRIVATE);
+        Boolean isIntroActivityOpnendBefore = pref.getBoolean("isMusic",true);
+        return  isIntroActivityOpnendBefore;
     }
 }

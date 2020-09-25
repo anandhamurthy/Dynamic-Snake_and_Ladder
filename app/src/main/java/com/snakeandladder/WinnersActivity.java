@@ -27,6 +27,8 @@ public class WinnersActivity extends AppCompatActivity {
 
     private String Name;
 
+    private SoundPlayer soundPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,12 +37,16 @@ public class WinnersActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Name = intent.getStringExtra("won");
 
+        soundPlayer = new SoundPlayer(this);
+
         KonfettiView = findViewById(R.id.konfettiView);
         Back = findViewById(R.id.back);
         Share = findViewById(R.id.share);
         Player_Name = findViewById(R.id.player_name);
 
         Player_Name.setText(Name);
+
+        soundPlayer.Play_Victory_Bg();
 
         KonfettiView.build()
                 .addColors(Color.YELLOW, Color.GREEN, Color.BLUE, Color.RED)
@@ -56,6 +62,7 @@ public class WinnersActivity extends AppCompatActivity {
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                soundPlayer.Play_Move_Sound();
                 startActivity(new Intent(WinnersActivity.this, SelectPlayersActivity.class));
                 finish();
             }
@@ -64,6 +71,7 @@ public class WinnersActivity extends AppCompatActivity {
         Share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                soundPlayer.Play_Move_Sound();
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
                 sendIntent.putExtra(Intent.EXTRA_TEXT,

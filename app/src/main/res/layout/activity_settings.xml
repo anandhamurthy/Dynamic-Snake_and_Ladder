@@ -4,292 +4,308 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/bg_por"
     tools:context=".SettingsActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_45sdp"
+            android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:id="@+id/player_color"
+                android:background="@color/colorWhite">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/nunito_sans_bold"
+                    android:text="Your Color"
+                    android:textSize="@dimen/_10sdp" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:id="@+id/player_color_"
+                android:background="@color/colorWhite"
+                android:layout_below="@+id/player_color">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:textColor="@color/colorGrey"
+                    android:fontFamily="@font/nunito_sans_bold"
+                    android:text="Color Selected"
+                    android:textSize="@dimen/_10sdp" />
+
+                <ImageView
+                    android:id="@+id/player_1_color_picker"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/colorBlack"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="centerInside"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:id="@+id/dice_color"
+                android:background="@color/colorWhite"
+                android:layout_below="@+id/player_color_">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/nunito_sans_bold"
+                    android:text="Dice Color"
+                    android:textSize="@dimen/_10sdp" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:id="@+id/dice_color_"
+                android:background="@color/colorWhite"
+                android:layout_below="@+id/dice_color">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:fontFamily="@font/nunito_sans_bold"
+                    android:text="Color Selected"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="@dimen/_10sdp" />
+
+                <ImageView
+                    android:id="@+id/player_1_dice_color_picker"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/colorBlack"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="centerInside"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:id="@+id/player_2_name_color"
+                android:background="@color/colorWhite"
+                android:layout_below="@+id/dice_color_">
+
+                <ImageView
+                    android:id="@+id/player_2_name_edit"
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/edit"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/player_2_name"
+                    android:layout_toRightOf="@+id/player_2_name_edit"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/nunito_sans_bold"
+                    android:text="Player 2"
+                    android:textSize="@dimen/_10sdp" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:id="@+id/player_2_name_"
+                android:background="@color/colorWhite"
+                android:layout_below="@+id/player_2_name_color">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:textColor="@color/colorGrey"
+                    android:fontFamily="@font/nunito_sans_bold"
+                    android:text="Color Selected"
+                    android:textSize="@dimen/_10sdp" />
+
+                <ImageView
+                    android:id="@+id/player_2_color_picker"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/colorBlack"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="centerInside"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:id="@+id/player_3_name_color"
+                android:background="@color/colorWhite"
+                android:layout_below="@+id/player_2_name_">
+
+                <ImageView
+                    android:id="@+id/player_3_name_edit"
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/edit"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/player_3_name"
+                    android:layout_toRightOf="@+id/player_3_name_edit"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/nunito_sans_bold"
+                    android:text="Player 3"
+                    android:textSize="@dimen/_10sdp" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:id="@+id/player_3_name_"
+                android:background="@color/colorWhite"
+                android:layout_below="@+id/player_3_name_color">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:textColor="@color/colorGrey"
+                    android:fontFamily="@font/nunito_sans_bold"
+                    android:text="Color Selected"
+                    android:textSize="@dimen/_10sdp" />
+
+                <ImageView
+                    android:id="@+id/player_3_color_picker"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_margin="@dimen/_3sdp"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/colorBlack"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="centerInside"/>
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
 
     <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_margin="@dimen/_10sdp"
         android:id="@+id/toolbar"
         android:background="@drawable/toolbar_rounded">
 
         <ImageView
             android:id="@+id/back"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
             android:layout_centerVertical="true"
             android:src="@drawable/back"
-            android:layout_marginStart="10dp"/>
+            android:layout_marginStart="@dimen/_10sdp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/back"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="@dimen/_10sdp"
             android:textColor="@color/colorBlack"
             android:fontFamily="@font/nunito_sans_bold"
             android:text="Settings"
-            android:textSize="15dp" />
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:id="@+id/player_color"
-        android:background="@color/colorWhite"
-        android:layout_below="@+id/toolbar">
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/colorBlack"
-            android:fontFamily="@font/nunito_sans_bold"
-            android:text="Your Color"
-            android:textSize="15dp" />
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:id="@+id/player_color_"
-        android:background="@color/colorWhite"
-        android:layout_below="@+id/player_color">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/colorGrey"
-            android:fontFamily="@font/nunito_sans_bold"
-            android:text="Color Selected"
-            android:textSize="15dp" />
-
-        <ImageView
-            android:id="@+id/player_1_color_picker"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="5dp"
-            android:layout_alignParentRight="true"
-            android:background="@color/colorBlack"
-            android:padding="10dp"
-            android:layout_centerVertical="true"
-            android:scaleType="centerInside"/>
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:id="@+id/dice_color"
-        android:background="@color/colorWhite"
-        android:layout_below="@+id/player_color_">
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/colorBlack"
-            android:fontFamily="@font/nunito_sans_bold"
-            android:text="Dice Color"
-            android:textSize="15dp" />
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:id="@+id/dice_color_"
-        android:background="@color/colorWhite"
-        android:layout_below="@+id/dice_color">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:fontFamily="@font/nunito_sans_bold"
-            android:text="Color Selected"
-            android:textColor="@color/colorGrey"
-            android:textSize="15dp" />
-
-        <ImageView
-            android:id="@+id/player_1_dice_color_picker"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="5dp"
-            android:layout_alignParentRight="true"
-            android:background="@color/colorBlack"
-            android:padding="10dp"
-            android:layout_centerVertical="true"
-            android:scaleType="centerInside"/>
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:id="@+id/player_2_name_color"
-        android:background="@color/colorWhite"
-        android:layout_below="@+id/dice_color_">
-
-        <ImageView
-            android:id="@+id/player_2_name_edit"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_centerVertical="true"
-            android:src="@drawable/edit"
-            android:layout_marginStart="10dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:id="@+id/player_2_name"
-            android:layout_toRightOf="@+id/player_2_name_edit"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/colorBlack"
-            android:fontFamily="@font/nunito_sans_bold"
-            android:text="Player 2"
-            android:textSize="15dp" />
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:id="@+id/player_2_name_"
-        android:background="@color/colorWhite"
-        android:layout_below="@+id/player_2_name_color">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/colorGrey"
-            android:fontFamily="@font/nunito_sans_bold"
-            android:text="Color Selected"
-            android:textSize="15dp" />
-
-        <ImageView
-            android:id="@+id/player_2_color_picker"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="5dp"
-            android:layout_alignParentRight="true"
-            android:background="@color/colorBlack"
-            android:padding="10dp"
-            android:layout_centerVertical="true"
-            android:scaleType="centerInside"/>
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:id="@+id/player_3_name_color"
-        android:background="@color/colorWhite"
-        android:layout_below="@+id/player_2_name_">
-
-        <ImageView
-            android:id="@+id/player_3_name_edit"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_centerVertical="true"
-            android:src="@drawable/edit"
-            android:layout_marginStart="10dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:id="@+id/player_3_name"
-            android:layout_toRightOf="@+id/player_3_name_edit"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/colorBlack"
-            android:fontFamily="@font/nunito_sans_bold"
-            android:text="Player 3"
-            android:textSize="15dp" />
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:id="@+id/player_3_name_"
-        android:background="@color/colorWhite"
-        android:layout_below="@+id/player_3_name_color">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/colorGrey"
-            android:fontFamily="@font/nunito_sans_bold"
-            android:text="Color Selected"
-            android:textSize="15dp" />
-
-        <ImageView
-            android:id="@+id/player_3_color_picker"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="5dp"
-            android:layout_alignParentRight="true"
-            android:background="@color/colorBlack"
-            android:padding="10dp"
-            android:layout_centerVertical="true"
-            android:scaleType="centerInside"/>
+            android:textSize="@dimen/_12sdp" />
 
 
     </RelativeLayout>

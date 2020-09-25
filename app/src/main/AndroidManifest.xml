@@ -6,6 +6,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <supports-screens
+        android:resizeable="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:xlargeScreens="true"
+        android:smallScreens="true"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
@@ -15,7 +22,7 @@
         <activity android:name=".WinnersActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".TriPlayerActivity" />
+        <activity android:name=".TriPlayerActivity"/>
         <activity android:name=".DualPlayerActivity" />
         <activity android:name=".SinglePlayerActivity" />
         <activity android:name=".SelectPlayersActivity" />

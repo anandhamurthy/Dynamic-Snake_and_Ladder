@@ -1,61 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/bg_por"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <RelativeLayout
+        android:id="@+id/play_board"
         android:layout_width="match_parent"
-        android:background="#99FFFFFF"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/player_board">
 
-        <HorizontalScrollView
+        <RelativeLayout
+            android:id="@+id/mlay"
             android:layout_width="match_parent"
-            android:id="@+id/scrollView"
-            android:layout_height="wrap_content"
-            android:padding="10px" >
+            android:layout_height="wrap_content">
 
-            <ScrollView
+            <HorizontalScrollView
+                android:id="@+id/scrollView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="10px" >
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/toolbar"
+                android:padding="@dimen/_2sdp"
+                android:scrollbars="none">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:id="@+id/board_layout"
-                    app:cardCornerRadius="10dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_margin="5dp"
-                    android:layout_height="wrap_content">
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/_2sdp">
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/board"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/board_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:reverseLayout="true"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="@dimen/_2sdp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardCornerRadius="@dimen/_2sdp">
 
-                </androidx.cardview.widget.CardView>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/board"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:reverseLayout="true" />
 
-            </ScrollView>
-        </HorizontalScrollView>
+                    </androidx.cardview.widget.CardView>
+
+                </ScrollView>
 
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            app:cardCornerRadius="5dp"
-            android:layout_margin="10dp"
-            app:cardBackgroundColor="#99FFFFFF"
-            android:layout_alignParentBottom="true"
-            android:layout_height="wrap_content">
+            </HorizontalScrollView>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/player_board"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/_5sdp"
+        app:cardBackgroundColor="#99FFFFFF"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/play_board"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:weightSum="2"
                 android:background="#99FFFFFF"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_100sdp"
                 android:orientation="horizontal">
 
 
@@ -69,14 +91,14 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="8dp">
+                        android:layout_margin="@dimen/_5sdp">
 
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/player_1_image"
-                            android:layout_width="25dp"
+                            android:layout_width="@dimen/_20sdp"
                             android:layout_centerVertical="true"
                             android:background="@drawable/profile"
-                            android:layout_height="25dp"
+                            android:layout_height="@dimen/_20sdp"
                             android:src="@drawable/profile" />
 
                         <TextView
@@ -84,8 +106,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Player 1"
-                            android:textSize="15dp"
-                            android:layout_marginLeft="10dp"
+                            android:textSize="@dimen/_12sdp"
+                            android:layout_marginLeft="@dimen/_5sdp"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@+id/player_1_image"
                             android:fontFamily="@font/nunito_sans"
@@ -97,9 +119,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1"
-                            android:layout_marginLeft="10dp"
-                            android:padding="5dp"
-                            android:textSize="15dp"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:padding="@dimen/_2sdp"
+                            android:textSize="@dimen/_12sdp"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@+id/player_1_name"
                             android:fontFamily="@font/nunito_sans"
@@ -113,10 +135,10 @@
 
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/player_2_image"
-                            android:layout_width="25dp"
+                            android:layout_width="@dimen/_20sdp"
                             android:layout_centerVertical="true"
                             android:background="@drawable/profile"
-                            android:layout_height="25dp"
+                            android:layout_height="@dimen/_20sdp"
                             android:src="@drawable/profile" />
 
                         <TextView
@@ -124,8 +146,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Player 2"
-                            android:textSize="15dp"
-                            android:layout_marginLeft="10dp"
+                            android:textSize="@dimen/_12sdp"
+                            android:layout_marginLeft="@dimen/_5sdp"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@+id/player_2_image"
                             android:fontFamily="@font/nunito_sans"
@@ -137,9 +159,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1"
-                            android:layout_marginLeft="10dp"
-                            android:padding="5dp"
-                            android:textSize="15dp"
+                            android:layout_marginLeft="@dimen/_5sdp"
+                            android:padding="@dimen/_2sdp"
+                            android:textSize="@dimen/_12sdp"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@+id/player_2_name"
                             android:fontFamily="@font/nunito_sans"
@@ -157,24 +179,24 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
                         android:layout_centerHorizontal="true"
                         android:id="@+id/dice"
-                        android:layout_margin="5dp"
+                        android:layout_margin="@dimen/_2sdp"
                         android:src="@drawable/dice_1"/>
 
                     <TextView
                         android:background="@drawable/rounded"
                         android:id="@+id/roll_1"
-                        android:layout_width="80dp"
+                        android:layout_width="@dimen/_50sdp"
                         android:layout_height="wrap_content"
                         android:text="Roll!"
                         android:gravity="center"
-                        android:layout_margin="5dp"
+                        android:layout_margin="@dimen/_2sdp"
                         android:layout_centerHorizontal="true"
-                        android:padding="5dp"
-                        android:textSize="15dp"
+                        android:padding="@dimen/_2sdp"
+                        android:textSize="@dimen/_12sdp"
                         android:layout_below="@+id/dice"
                         android:fontFamily="@font/nunito_sans_bold"
                         android:textColor="@color/colorWhite" />
@@ -182,15 +204,15 @@
                     <TextView
                         android:background="@drawable/rounded"
                         android:id="@+id/roll_2"
-                        android:layout_width="80dp"
+                        android:layout_width="@dimen/_50sdp"
                         android:layout_height="wrap_content"
                         android:text="Roll!"
                         android:gravity="center"
                         android:visibility="gone"
-                        android:layout_margin="5dp"
+                        android:layout_margin="@dimen/_2sdp"
                         android:layout_centerHorizontal="true"
-                        android:padding="5dp"
-                        android:textSize="15dp"
+                        android:padding="@dimen/_2sdp"
+                        android:textSize="@dimen/_12sdp"
                         android:layout_below="@+id/dice"
                         android:fontFamily="@font/nunito_sans_bold"
                         android:textColor="@color/colorWhite" />
@@ -198,15 +220,9 @@
                 </RelativeLayout>
 
 
-
-
-
             </LinearLayout>
-
 
 
         </androidx.cardview.widget.CardView>
 
-    </RelativeLayout>
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

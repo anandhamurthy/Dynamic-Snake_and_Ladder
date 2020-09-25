@@ -6,11 +6,11 @@
     android:layout_height="wrap_content">
 
     <RelativeLayout
-        android:layout_width="50dp"
-        android:layout_margin="1dp"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_margin="@dimen/_1sdp"
         android:id="@+id/one"
         android:background="@color/colorGrey"
-        android:layout_height="50dp">
+        android:layout_height="@dimen/_35sdp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -20,26 +20,26 @@
             android:layout_centerInParent="true"
             android:fontFamily="@font/nunito_sans_bold"
             android:textColor="@color/colorBlack"
-            android:textSize="20dp"/>
+            android:textSize="@dimen/_15sdp"/>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="@dimen/_10sdp"
             android:gravity="center"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/_5sdp"
             android:layout_alignParentBottom="true">
 
 
             <ImageView
                 android:id="@+id/one_1"
-                android:layout_width="5dp"
-                android:layout_height="5dp"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
                 android:background="@drawable/icon_rounded"
                 android:textColor="@color/colorBlack"
                 android:gravity="center"
-                android:layout_marginRight="2dp"
-                android:layout_marginLeft="2dp"/>
+                android:layout_marginRight="@dimen/_2sdp"
+                android:layout_marginLeft="@dimen/_2sdp"/>
 
 
         </LinearLayout>
@@ -47,11 +47,11 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="50dp"
-        android:layout_margin="1dp"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_margin="@dimen/_1sdp"
         android:id="@+id/two"
         android:background="@color/colorGrey"
-        android:layout_height="50dp">
+        android:layout_height="@dimen/_35sdp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -61,28 +61,28 @@
             android:layout_centerInParent="true"
             android:fontFamily="@font/nunito_sans_bold"
             android:textColor="@color/colorBlack"
-            android:textSize="20dp"/>
+            android:textSize="@dimen/_15sdp"/>
 
         <LinearLayout
             android:orientation="horizontal"
 
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="@dimen/_10sdp"
             android:gravity="center"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/_5sdp"
             android:layout_alignParentBottom="true">
 
 
             <ImageView
                 android:id="@+id/one_2"
-                android:layout_width="5dp"
-                android:layout_height="5dp"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
                 android:background="@drawable/icon_rounded"
                 android:textColor="@color/colorBlack"
                 android:gravity="center"
                 android:visibility="gone"
-                android:layout_marginRight="2dp"
-                android:layout_marginLeft="2dp"/>
+                android:layout_marginRight="@dimen/_2sdp"
+                android:layout_marginLeft="@dimen/_2sdp"/>
 
 
         </LinearLayout>
@@ -90,11 +90,11 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="50dp"
-        android:layout_margin="1dp"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_margin="@dimen/_1sdp"
         android:id="@+id/three"
         android:background="@color/colorGrey"
-        android:layout_height="50dp">
+        android:layout_height="@dimen/_35sdp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -104,27 +104,27 @@
             android:layout_centerInParent="true"
             android:fontFamily="@font/nunito_sans_bold"
             android:textColor="@color/colorBlack"
-            android:textSize="20dp"/>
+            android:textSize="@dimen/_15sdp"/>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="@dimen/_10sdp"
             android:gravity="center"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/_5sdp"
             android:layout_alignParentBottom="true">
 
 
             <ImageView
                 android:id="@+id/one_3"
-                android:layout_width="5dp"
-                android:layout_height="5dp"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
                 android:background="@drawable/icon_rounded"
                 android:visibility="gone"
                 android:textColor="@color/colorBlack"
                 android:gravity="center"
-                android:layout_marginRight="2dp"
-                android:layout_marginLeft="2dp"/>
+                android:layout_marginRight="@dimen/_2sdp"
+                android:layout_marginLeft="@dimen/_2sdp"/>
 
 
         </LinearLayout>
@@ -132,11 +132,11 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="50dp"
-        android:layout_margin="1dp"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_margin="@dimen/_1sdp"
         android:id="@+id/four"
         android:background="@color/colorGrey"
-        android:layout_height="50dp">
+        android:layout_height="@dimen/_35sdp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -146,27 +146,27 @@
             android:layout_centerInParent="true"
             android:fontFamily="@font/nunito_sans_bold"
             android:textColor="@color/colorBlack"
-            android:textSize="20dp"/>
+            android:textSize="@dimen/_15sdp"/>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="@dimen/_10sdp"
             android:gravity="center"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/_5sdp"
             android:layout_alignParentBottom="true">
 
 
             <ImageView
                 android:id="@+id/one_4"
-                android:layout_width="5dp"
-                android:layout_height="5dp"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
                 android:background="@drawable/icon_rounded"
                 android:visibility="gone"
                 android:textColor="@color/colorBlack"
                 android:gravity="center"
-                android:layout_marginRight="2dp"
-                android:layout_marginLeft="2dp"/>
+                android:layout_marginRight="@dimen/_2sdp"
+                android:layout_marginLeft="@dimen/_2sdp"/>
 
 
 
@@ -175,11 +175,11 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="50dp"
-        android:layout_margin="1dp"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_margin="@dimen/_1sdp"
         android:id="@+id/five"
         android:background="@color/colorGrey"
-        android:layout_height="50dp">
+        android:layout_height="@dimen/_35sdp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -189,27 +189,27 @@
             android:layout_centerInParent="true"
             android:fontFamily="@font/nunito_sans_bold"
             android:textColor="@color/colorBlack"
-            android:textSize="20dp"/>
+            android:textSize="@dimen/_15sdp"/>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="@dimen/_10sdp"
             android:gravity="center"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/_5sdp"
             android:layout_alignParentBottom="true">
 
 
             <ImageView
                 android:id="@+id/one_5"
-                android:layout_width="5dp"
-                android:layout_height="5dp"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
                 android:background="@drawable/icon_rounded"
                 android:visibility="gone"
                 android:textColor="@color/colorBlack"
                 android:gravity="center"
-                android:layout_marginRight="2dp"
-                android:layout_marginLeft="2dp"/>
+                android:layout_marginRight="@dimen/_2sdp"
+                android:layout_marginLeft="@dimen/_2sdp"/>
 
 
         </LinearLayout>
@@ -217,11 +217,11 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="50dp"
-        android:layout_margin="1dp"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_margin="@dimen/_1sdp"
         android:id="@+id/six"
         android:background="@color/colorGrey"
-        android:layout_height="50dp">
+        android:layout_height="@dimen/_35sdp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -231,27 +231,27 @@
             android:layout_centerInParent="true"
             android:fontFamily="@font/nunito_sans_bold"
             android:textColor="@color/colorBlack"
-            android:textSize="20dp"/>
+            android:textSize="@dimen/_15sdp"/>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="@dimen/_10sdp"
             android:gravity="center"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/_5sdp"
             android:layout_alignParentBottom="true">
 
 
             <ImageView
                 android:id="@+id/one_6"
-                android:layout_width="5dp"
-                android:layout_height="5dp"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
                 android:background="@drawable/icon_rounded"
                 android:visibility="gone"
                 android:textColor="@color/colorBlack"
                 android:gravity="center"
-                android:layout_marginRight="2dp"
-                android:layout_marginLeft="2dp"/>
+                android:layout_marginRight="@dimen/_2sdp"
+                android:layout_marginLeft="@dimen/_2sdp"/>
 
 
 
@@ -260,11 +260,11 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="50dp"
-        android:layout_margin="1dp"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_margin="@dimen/_1sdp"
         android:id="@+id/seven"
         android:background="@color/colorGrey"
-        android:layout_height="50dp">
+        android:layout_height="@dimen/_35sdp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -274,27 +274,27 @@
             android:layout_centerInParent="true"
             android:fontFamily="@font/nunito_sans_bold"
             android:textColor="@color/colorBlack"
-            android:textSize="20dp"/>
+            android:textSize="@dimen/_15sdp"/>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="@dimen/_10sdp"
             android:gravity="center"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/_5sdp"
             android:layout_alignParentBottom="true">
 
 
             <ImageView
                 android:id="@+id/one_7"
-                android:layout_width="5dp"
-                android:layout_height="5dp"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
                 android:background="@drawable/icon_rounded"
                 android:visibility="gone"
                 android:textColor="@color/colorBlack"
                 android:gravity="center"
-                android:layout_marginRight="2dp"
-                android:layout_marginLeft="2dp"/>
+                android:layout_marginRight="@dimen/_2sdp"
+                android:layout_marginLeft="@dimen/_2sdp"/>
 
 
 
@@ -303,11 +303,11 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="50dp"
-        android:layout_margin="1dp"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_margin="@dimen/_1sdp"
         android:id="@+id/eight"
         android:background="@color/colorGrey"
-        android:layout_height="50dp">
+        android:layout_height="@dimen/_35sdp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -317,27 +317,27 @@
             android:layout_centerInParent="true"
             android:fontFamily="@font/nunito_sans_bold"
             android:textColor="@color/colorBlack"
-            android:textSize="20dp"/>
+            android:textSize="@dimen/_15sdp"/>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="@dimen/_10sdp"
             android:gravity="center"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/_5sdp"
             android:layout_alignParentBottom="true">
 
 
             <ImageView
                 android:id="@+id/one_8"
-                android:layout_width="5dp"
-                android:layout_height="5dp"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
                 android:background="@drawable/icon_rounded"
                 android:visibility="gone"
                 android:textColor="@color/colorBlack"
                 android:gravity="center"
-                android:layout_marginRight="2dp"
-                android:layout_marginLeft="2dp"/>
+                android:layout_marginRight="@dimen/_2sdp"
+                android:layout_marginLeft="@dimen/_2sdp"/>
 
 
 
@@ -346,11 +346,11 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="50dp"
-        android:layout_margin="1dp"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_margin="@dimen/_1sdp"
         android:id="@+id/nine"
         android:background="@color/colorGrey"
-        android:layout_height="50dp">
+        android:layout_height="@dimen/_35sdp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -360,27 +360,27 @@
             android:layout_centerInParent="true"
             android:fontFamily="@font/nunito_sans_bold"
             android:textColor="@color/colorBlack"
-            android:textSize="20dp"/>
+            android:textSize="@dimen/_15sdp"/>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="@dimen/_10sdp"
             android:gravity="center"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/_5sdp"
             android:layout_alignParentBottom="true">
 
 
             <ImageView
                 android:id="@+id/one_9"
-                android:layout_width="5dp"
-                android:layout_height="5dp"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
                 android:background="@drawable/icon_rounded"
                 android:visibility="gone"
                 android:textColor="@color/colorBlack"
                 android:gravity="center"
-                android:layout_marginRight="2dp"
-                android:layout_marginLeft="2dp"/>
+                android:layout_marginRight="@dimen/_2sdp"
+                android:layout_marginLeft="@dimen/_2sdp"/>
 
 
         </LinearLayout>
@@ -388,11 +388,11 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="50dp"
-        android:layout_margin="1dp"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_margin="@dimen/_1sdp"
         android:id="@+id/ten"
         android:background="@color/colorGrey"
-        android:layout_height="50dp">
+        android:layout_height="@dimen/_35sdp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -402,27 +402,27 @@
             android:layout_centerInParent="true"
             android:fontFamily="@font/nunito_sans_bold"
             android:textColor="@color/colorBlack"
-            android:textSize="20dp"/>
+            android:textSize="@dimen/_15sdp"/>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="@dimen/_10sdp"
             android:gravity="center"
-            android:layout_margin="5dp"
+            android:layout_margin="@dimen/_5sdp"
             android:layout_alignParentBottom="true">
 
 
             <ImageView
                 android:id="@+id/one_10"
-                android:layout_width="5dp"
-                android:layout_height="5dp"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
                 android:background="@drawable/icon_rounded"
                 android:visibility="gone"
                 android:textColor="@color/colorBlack"
                 android:gravity="center"
-                android:layout_marginRight="2dp"
-                android:layout_marginLeft="2dp"/>
+                android:layout_marginRight="@dimen/_2sdp"
+                android:layout_marginLeft="@dimen/_2sdp"/>
 
 
         </LinearLayout>

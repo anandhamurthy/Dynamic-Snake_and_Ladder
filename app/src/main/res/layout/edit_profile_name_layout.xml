@@ -5,16 +5,16 @@
     android:background="@color/colorWhite"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="5dp">
+    android:padding="@dimen/_3sdp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="@dimen/_3sdp"
         android:text="Player Name"
         android:textColor="@color/colorBlack"
-        android:textSize="18dp"
+        android:textSize="@dimen/_15sdp"
         android:fontFamily="@font/nunito_sans" />
 
     <EditText
@@ -23,12 +23,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/_10sdp"
         android:fontFamily="@font/nunito_sans"
         android:hint="Enter Player Name"
         android:inputType="textCapWords"
         android:textColor="@color/colorBlack"
-        android:textSize="15dp" />
+        android:textSize="@dimen/_10sdp" />
 
     <Button
         android:id="@+id/submit"
@@ -36,12 +36,12 @@
         android:layout_height="wrap_content"
         android:text="Submit"
         android:fontFamily="@font/nunito_sans"
-        android:padding="10dp"
+        android:padding="@dimen/_10sdp"
         android:background="@color/colorBlack"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:textAllCaps="true"
-        android:textSize="15dp"
-        android:drawablePadding="10dp"
+        android:textSize="@dimen/_10sdp"
+        android:drawablePadding="@dimen/_10sdp"
         android:textColor="#FFFFFF"/>
 </LinearLayout>
